@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: test-container
-        image: us-central1-docker.pkg.dev/project-princess-437716/test-app/test-app/latest:latest
+        image: us-central1-docker.pkg.dev/project-princess-437716/test-app-repo/test-app:latest
         ports:
         - containerPort: 80
