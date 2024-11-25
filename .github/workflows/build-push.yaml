@@ -74,9 +74,9 @@ jobs:
         run: |
             echo "Setting KUBECONFIG..."
             gcloud container clusters get-credentials princess-cluster-1 --zone us-central1-c --project project-princess-437716
-      - name: Apply Kubernetes manifests
-        run: |
-          echo "Applying Kubernetes manifests..."
-          kubectl apply -f manifests/deployment.yaml
-          kubectl apply -f manifests/service.yaml
-          kubectl apply -f manifests/ingress.yaml
+      # - name: Apply Kubernetes manifests
+      #   run: |
+      #     echo "Applying Kubernetes manifests..."
+      #     kubectl apply -f manifests/deployment.yaml
+      #     kubectl apply -f manifests/service.yaml
+      #     kubectl apply -f manifests/ingress.yaml
