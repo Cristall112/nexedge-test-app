@@ -43,7 +43,7 @@ jobs:
       - name: Set KUBECONFIG
         run: |
             echo "Setting KUBECONFIG..."
-            gcloud container clusters get-credentials princess-cluster-1 --region=us-central1 --project=${{ secrets.GCLOUD_PROJECT_ID }}
+            gcloud container clusters get-credentials princess-cluster-1 --zone us-central1-c --project project-princess-437716
          
   deploy-to-gke:
     name: deploy-manifests
@@ -66,17 +66,17 @@ jobs:
           echo "Setting default project ID..."
           gcloud config set project ${{ secrets.GCLOUD_PROJECT_ID }}
 
-      - name: Install GKE gcloud Authentication Plugin
+      - name: Install GKEgcloud gcloud Authentication Plugin
         run: |
           gcloud components install kubectl
   
       - name: Set KUBECONFIG
         run: |
             echo "Setting KUBECONFIG..."
-            gcloud container clusters get-credentials princess-cluster-1 --region=us-central1 --project=${{ secrets.GCLOUD_PROJECT_ID }}
+            gcloud container clusters get-credentials princess-cluster-1 --zone us-central1-c --project project-princess-437716
       - name: Apply Kubernetes manifests
         run: |
           echo "Applying Kubernetes manifests..."
-          kubectl apply -f manifests/deployments.yaml
+          kubectl apply -f manifests/deployment.yaml
           kubectl apply -f manifests/service.yaml
           kubectl apply -f manifests/ingress.yaml
